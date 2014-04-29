@@ -1171,6 +1171,8 @@ bool Generic_GCC::GCCVersion::isOlderThan(int RHSMajor, int RHSMinor,
 }
 
 static llvm::StringRef getGCCToolchainDir(const ArgList &Args) {
+  if (const char *S = ::getenv("COMPILER_RUNTIME_OBJECTS"))
+    return StringRef(S);
   const Arg *A = Args.getLastArg(options::OPT_gcc_toolchain);
   if (A)
     return A->getValue();
