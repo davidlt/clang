@@ -4568,7 +4568,7 @@ static void handleCMSThreadSafeAttr(Sema &S, Decl *D, const AttributeList &Attr)
 
     if (!(isa<Decl>(D))) {
       S.Diag(Attr.getLoc(), diag::warn_attribute_wrong_decl_type)
-        << Attr.getName() << ExpectedVariableOrFunction;
+        << Attr.getName();
       return;
     }
 
